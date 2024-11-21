@@ -1,7 +1,7 @@
 import Place from "../api/Place";
 import 'leaflet/dist/leaflet.css';
 import {Map as LeafletMap} from 'leaflet';
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
 
 interface MapProps{
