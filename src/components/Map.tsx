@@ -1,12 +1,21 @@
 import Place from "../api/Place";
 import 'leaflet/dist/leaflet.css';
 // import {Map as LeafletMap} from 'leaflet';
+import L from 'leaflet';
 import { useEffect } from "react";
 import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
 
 interface MapProps{
     place: Place | null;
 };
+
+const DefaultIcon = L.icon({
+    iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+    iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+});
+
+L.Marker.prototype.options.icon = DefaultIcon;
 
 function FlyToLocation({ place }: { place: Place | null }) {
     const map = useMap();
